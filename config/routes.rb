@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  root to: 'shop#index'
+
+   devise_for :admin_users, controllers: {
+        sessions: 'admin_users/sessions'
+      }
+
+  get 'admin', to: 'admin#index'
+  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
