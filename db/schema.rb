@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141229161910) do
+ActiveRecord::Schema.define(version: 20141229175255) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 20141229161910) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "product_characteristics", force: :cascade do |t|
+    t.float    "price",      limit: 24
+    t.integer  "size",       limit: 4
+    t.string   "color",      limit: 255
+    t.string   "image",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "products", force: :cascade do |t|
     t.string   "model_name",  limit: 255
