@@ -1,25 +1,24 @@
 class ProductsController < ApplicationController
+layout 'admin'
+# before_action :authenticate_admin_user!
+
+
   def index
+  @products = Product.all
   end
 
   def show
-  end
 
-  def create
   end
 
   def new
+    @product = Product.new
   end
 
   def edit
   end
 
-  def update
-  end
-
   def delete
   end
 
-  def destroy
-  end
 end
