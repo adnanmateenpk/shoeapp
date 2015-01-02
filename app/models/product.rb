@@ -8,7 +8,7 @@ class Product < ActiveRecord::Base
 
 
 	#validations
-	validates :model_name,	:presence => true,
+	validates :mod_name,	:presence => true,
 							:length => { :maximum => 25 }
 	validates :sku, 		:uniqueness => true,
 							:presence => true
