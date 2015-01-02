@@ -38,7 +38,10 @@ ActiveRecord::Schema.define(version: 20150102163721) do
     t.string   "image",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "product_id", limit: 4
   end
+
+  add_index "product_characteristics", ["product_id"], name: "index_product_characteristics_on_product_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "mod_name",    limit: 255
