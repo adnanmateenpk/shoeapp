@@ -5,6 +5,7 @@ layout 'admin'
 
   def index
   @products = Product.all
+  #@products = Product.sorted ##gave me an error.
   end
 
   def show
