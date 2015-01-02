@@ -4,8 +4,7 @@ layout 'admin'
 
 
   def index
-  @products = Product.all
-  #@products = Product.sorted ##gave me an error. 
+  @products = Product.sorted
   end
 
   def show
@@ -14,6 +13,7 @@ layout 'admin'
 
   def new
     @product = Product.new
+    @product_count = @products.count + 1
   end
 
   def edit
