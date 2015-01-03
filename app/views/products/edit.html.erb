@@ -1,6 +1,6 @@
 <h1>Update Product</h1>
 
-<%= form_for(:product, :url=>{:action=>'update'}) do |f| %>
+<%= form_for(:product, :url=>{:action => 'update', :id => @product.id}) do |f| %>
 <%= render(:partial => "form",:locals=>{:f=>f})%>
 <div class="form-buttons">
   <%= submit_tag("Update Product")%>
