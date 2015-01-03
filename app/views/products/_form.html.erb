@@ -4,21 +4,17 @@
     <th><%= f.label(:mod_name,"Name")%></th>
     <td><%= f.text_field(:mod_name)%></td>
   </tr>
-  <tr>  
-    <th><%= f.label(:sku,"SKU")%></th>
-    <td><%= f.text_field(:sku)%></td>
-  </tr>
-  <tr>   
-    <th><%= f.label(:position,"Position")%></th>
-    <td><%= f.text_field(:position)%></td>
-  </tr>
-  <tr>  
+  <tr>
     <th><%= f.label(:sku,"SKU")%></th>
     <td><%= f.text_field(:sku)%></td>
   </tr>
   <tr>
+    <th><%= f.label(:position,"Position")%></th>
+    <td><%= f.select(:position, 1..@product_count)%></td>
+  </tr>
+  <tr>
     <th><%= f.label(:status) %></th>
-    <td><%= f.check_box(:status) %></td>
+    <td><%= f.select(:status, options_for_select(['Published',1],['Unpublished',0])) %></td>
   </tr>
   <tr>
     <th><%= f.label(:description) %></th>
