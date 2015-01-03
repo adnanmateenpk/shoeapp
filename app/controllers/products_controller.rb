@@ -2,7 +2,6 @@ class ProductsController < ApplicationController
 layout 'admin'
 # before_action :authenticate_admin_user!
 
-
   def index
   @products = Product.sorted
   end
@@ -15,6 +14,7 @@ layout 'admin'
     @product = Product.new
     @product_count = Product.count + 1
   end
+
   def create
     @product = Product.new(product_params)
       if @product.save
@@ -27,9 +27,22 @@ layout 'admin'
   end
 
   def edit
+    @product = Product.find(params[:id])
+    @product_count = Product.count
   end
 
   def delete
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    if @product.save
+      flash[:notice]="Product update successfully"
+      redirect_to(:action=>'index')
+    else
+      @product_count = Product.count
+      render('edit')
+    end
   end
 
 private

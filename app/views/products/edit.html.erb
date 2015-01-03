@@ -1,2 +1,8 @@
-<h1>Products#edit</h1>
-<p>Find me in app/views/products/edit.html.erb</p>
+<h1>Update Product</h1>
+
+<%= form_for(:product, :url=>{:action=>'update'}) do |f| %>
+<%= render(:partial => "form",:locals=>{:f=>f})%>
+<div class="form-buttons">
+  <%= submit_tag("Update Product")%>
+</div>
+<% end %>

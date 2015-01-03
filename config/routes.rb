@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :products
+  resources :products do
+    member do
+      get 'delete'
+    end
+  end
 
   devise_for :users
   root to: 'shop#index'
