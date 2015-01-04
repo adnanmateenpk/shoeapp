@@ -3,6 +3,11 @@ Rails.application.routes.draw do
     member do
       get 'delete'
     end
+    resources :characteristics do
+      member do
+        get 'delete'
+      end
+    end
   end
 
   devise_for :users
