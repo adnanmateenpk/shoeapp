@@ -1,8 +1,8 @@
 class AddPositionToProduct < ActiveRecord::Migration
 
   def up
-  add_column("products","position", :integer)
-  add_index("products","position")
+    add_column("products","position", :integer)
+    add_index("products","position")
   end
 
   def down
