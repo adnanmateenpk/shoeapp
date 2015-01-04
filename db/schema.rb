@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150102163721) do
+ActiveRecord::Schema.define(version: 20150104130113) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -39,9 +39,11 @@ ActiveRecord::Schema.define(version: 20150102163721) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "product_id", limit: 4
+    t.string   "slug",       limit: 255
   end
 
   add_index "product_characteristics", ["product_id"], name: "index_product_characteristics_on_product_id", using: :btree
+  add_index "product_characteristics", ["slug"], name: "index_product_characteristics_on_slug", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "mod_name",    limit: 255
@@ -51,9 +53,11 @@ ActiveRecord::Schema.define(version: 20150102163721) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.integer  "position",    limit: 4
+    t.string   "slug",        limit: 255
   end
 
   add_index "products", ["position"], name: "index_products_on_position", using: :btree
+  add_index "products", ["slug"], name: "index_products_on_slug", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
