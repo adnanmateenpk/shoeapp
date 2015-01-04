@@ -1,7 +1,8 @@
 <%= link_to("Back to Products",{:action=>'index'},:class=>'action index')%>
 <h1>Delete Product</h1>
 
-<%= form_for(:product, :url=>{:action => 'destoy', :id => @product.id},:method=>"delete") do |f| %>
+<%= form_for(:product, :url=>{:action => 'destroy', :id => @product.id},:method=>"delete") do |f| %>
+Are you sure you want to delete <%= @product.mod_name %> ?
 <div class="form-buttons">
   <%= submit_tag("Delete Product")%>
 </div>
