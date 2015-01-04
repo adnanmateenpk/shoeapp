@@ -36,8 +36,9 @@ layout 'admin'
 
   def update
     @product = Product.find(params[:id])
-    if @product.save
-      flash[:notice]="Product update successfully"
+
+    if @product.update_attributes(product_params)
+      flash[:notice]=@product.status
       redirect_to(:action=>'index')
     else
       @product_count = Product.count
