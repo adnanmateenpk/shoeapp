@@ -1,2 +1,8 @@
-<h1>Products#delete</h1>
-<p>Find me in app/views/products/delete.html.erb</p>
+<%= link_to("Back to Products",{:action=>'index'},:class=>'action index')%>
+<h1>Delete Product</h1>
+
+<%= form_for(:product, :url=>{:action => 'destoy', :id => @product.id},:method=>"delete") do |f| %>
+<div class="form-buttons">
+  <%= submit_tag("Delete Product")%>
+</div>
+<% end %>

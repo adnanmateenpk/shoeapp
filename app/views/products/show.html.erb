@@ -1,2 +1,26 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<table summary="Product form fields">
+  <tr>
+    <th>Model Name</th>
+    <td><%= @product.mod_name %></td>
+  </tr>
+  <tr>
+    <th>SKU</th>
+    <td><%= @product.sku %></td>
+  </tr>
+  <tr>
+    <th>Position</th>
+    <td><%= @product.position %></td>
+  </tr>
+  <tr>
+    <th>Status</th>
+    <% if @product.status %>
+    <td>Published</td>
+    <% else %>
+    <td>Unpublished</td>
+    <% end %>
+  </tr>
+  <tr>
+    <th>Description</th>
+    <td><%= @product.description %></td>
+  </tr>
+</table>

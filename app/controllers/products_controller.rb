@@ -7,7 +7,7 @@ layout 'admin'
   end
 
   def show
-
+    @product = Product.find(params[:id])
   end
 
   def new
@@ -32,6 +32,13 @@ layout 'admin'
   end
 
   def delete
+    @product = Product.find(params[:id])
+  end
+
+  def destroy
+    @product = Product.find(params[:id]).destroy
+    flash[:notice]="Product'#{@product.mod_name}'destroyed successfully"
+    redirect_to(:action=>'index')
   end
 
   def update
