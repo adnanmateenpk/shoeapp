@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       }
 
   get 'admin', to: 'admin#index'
-  namespace :admin do
+  scope :admin do
     resources :products do
       member do
         get 'delete'
