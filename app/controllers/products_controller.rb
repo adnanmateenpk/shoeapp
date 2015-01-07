@@ -55,10 +55,10 @@ before_action :authenticate_admin_user!
 
 private
   def product_params
-    if params[:slug].blank?
-       params[:slug] = params[:mod_name].parameterize
+    if params[:product][:slug].blank?
+       params[:product][:slug] = params[:product][:mod_name].parameterize
     else
-        params[:slug] = params[:slug].parameterize
+        params[:product][:slug] = params[:product][:slug].parameterize
     end
     params.require(:product).permit(:mod_name,:sku,:position,:description,:status,:slug)
   end
