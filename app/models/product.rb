@@ -17,6 +17,6 @@ class Product < ActiveRecord::Base
 	validates :position, 	:numericality =>{:only_integer => true},
 							:presence => true
 
-	validates :slug, :uniqueness
+	validates :slug, :uniqueness => true
 
 end
