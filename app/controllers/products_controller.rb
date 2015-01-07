@@ -7,7 +7,7 @@ before_action :authenticate_admin_user!
   end
 
   def show
-    @product = Product.find(params[:id])
+    @product = Product.where(["slug = ?",params[:slug]]).first
   end
 
   def new
@@ -27,22 +27,22 @@ before_action :authenticate_admin_user!
   end
 
   def edit
-    @product = Product.find(params[:id])
+    @product = Product.where(params[:slug])
     @product_count = Product.count
   end
 
   def delete
-    @product = Product.find(params[:id])
+    @product = Product.where(params[:slug])
   end
 
   def destroy
-    @product = Product.find(params[:id]).destroy
+    @product = Product.where(params[:slug]).destroy
     flash[:notice]="Product '#{@product.mod_name}' destroyed successfully"
     redirect_to(:action=>'index')
   end
 
   def update
-    @product = Product.find(params[:id])
+    @product = Product.where(params[:slug])
 
     if @product.update_attributes(product_params)
       flash[:notice]=@product.status

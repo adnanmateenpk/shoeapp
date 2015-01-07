@@ -18,9 +18,9 @@
     <td>Unpublished</td>
     <% end %>
     <td class="actions">
-      <%= link_to("Show", {:action => 'show', :id => product.id}, :class => 'action show') %>
-      <%= link_to("Edit", {:action => 'edit', :id => product.id}, :class => 'action edit') %>
-      <%= link_to("Delete", {:action => 'delete', :id => product.id}, :class => 'action delete') %>
+      <%= link_to("Show", {:action => 'show', :slug => product.slug}, :class => 'action show') %>
+      <%= link_to("Edit", {:action => 'edit', :slug => product.slug}, :class => 'action edit') %>
+      <%= link_to("Delete", {:action => 'delete', :slug => product.slug}, :class => 'action delete') %>
     </td>
   </tr>
   <% end %>

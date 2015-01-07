@@ -1,7 +1,7 @@
 <%= link_to("Back to Products",{:action=>'index'},:class=>'action index')%>
 <h1>Update Product</h1>
 
-<%= form_for(:product, :url=>{:action => 'update', :id => @product.id},:method=>"patch") do |f| %>
+<%= form_for(:product, :url=>{:action => 'update', :slug => @product.id},:method=>"patch") do |f| %>
 <%= render(:partial => "form",:locals=>{:f=>f})%>
 <div class="form-buttons">
   <%= submit_tag("Update Product")%>
