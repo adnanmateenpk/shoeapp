@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 layout 'admin'
-# before_action :authenticate_admin_user!
+before_action :authenticate_admin_user!
 
   def index
   @products = Product.sorted
