@@ -9,4 +9,6 @@ class ProductCharacteristic < ActiveRecord::Base
 
   validates :color, :presence => true,
 
+  validates :slug, :uniqueness
+
 end
