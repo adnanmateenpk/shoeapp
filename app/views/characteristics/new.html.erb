@@ -1,2 +1,9 @@
-<h1>Characteristics#new</h1>
-<p>Find me in app/views/characteristics/new.html.erb</p>
+<%= link_to("Back to Characteristic",product_characteristics_path(@product_slug),:class=>'action index')%>
+<h1>New Characteristic</h1>
+
+<%= form_for(:product, :url=>product_characteristics_path(@product_slug)) do |f| %>
+<%= render(:partial => "form",:locals=>{:f=>f})%>
+<div class="form-buttons">
+  <%= submit_tag("Create Characteristic")%>
+</div>
+<% end %>
