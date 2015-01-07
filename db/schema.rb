@@ -38,9 +38,11 @@ ActiveRecord::Schema.define(version: 20150104130113) do
     t.string   "image",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "product_id", limit: 4
     t.string   "slug",       limit: 255
   end
 
+  add_index "product_characteristics", ["product_id"], name: "index_product_characteristics_on_product_id", using: :btree
   add_index "product_characteristics", ["slug"], name: "index_product_characteristics_on_slug", using: :btree
 
   create_table "products", force: :cascade do |t|

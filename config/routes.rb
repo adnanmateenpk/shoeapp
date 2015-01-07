@@ -6,13 +6,13 @@ Rails.application.routes.draw do
         sessions: 'admin_users/sessions'
       }
 
-  get 'admin', to: 'admin#index'
+  get 'admin', to: 'admin#index' 
   scope :admin do
-    resources :products do
+    resources :products , param: :slug do
       member do
         get 'delete'
       end
-      resources :characteristics do
+      resources :characteristics, param: :slug do
         member do
           get 'delete'
         end

@@ -37,7 +37,7 @@ before_action :authenticate_admin_user!
 
   def destroy
     @product = Product.find(params[:id]).destroy
-    flash[:notice]="Product'#{@product.mod_name}'destroyed successfully"
+    flash[:notice]="Product '#{@product.mod_name}' destroyed successfully"
     redirect_to(:action=>'index')
   end
 
