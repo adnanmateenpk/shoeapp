@@ -17,32 +17,32 @@ before_action :authenticate_admin_user!
 
   def create
     @product = Product.new(product_params)
-      if @product.save
-        flash[:notice]="Product created successfully"
-        redirect_to(:action=>'index')
-      else
-        @product_count = Product.count + 1
-        render('new')
-  end
+    if @product.save
+      flash[:notice]="Product created successfully"
+      redirect_to(:action=>'index')
+    else
+      @product_count = Product.count + 1
+      render('new')
+    end
   end
 
   def edit
-    @product = Product.where(params[:slug])
+    @product = Product.where(["slug = ?",params[:slug]]).first
     @product_count = Product.count
   end
 
   def delete
-    @product = Product.where(params[:slug])
+    @product = Product.where(["slug = ?",params[:slug]]).first
   end
 
   def destroy
-    @product = Product.where(params[:slug]).destroy
+    @product = Product.where(["slug = ?",params[:slug]]).first.destroy
     flash[:notice]="Product '#{@product.mod_name}' destroyed successfully"
     redirect_to(:action=>'index')
   end
 
   def update
-    @product = Product.where(params[:slug])
+    @product = Product.where(["slug = ?",params[:slug]]).first
 
     if @product.update_attributes(product_params)
       flash[:notice]=@product.status

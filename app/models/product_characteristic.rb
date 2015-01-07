@@ -3,12 +3,12 @@ class ProductCharacteristic < ActiveRecord::Base
   belongs_to :product
 
   #validations
-  validates :price, :numericality => true, :presence => true,
+  validates :price, :numericality => true, :presence => true
 
-  validates :size, :presence => true,
+  validates :size, :presence => true
 
-  validates :color, :presence => true,
+  validates :color, :presence => true
 
-  validates :slug, :uniqueness
+  validates :slug, :uniqueness => true
 
 end

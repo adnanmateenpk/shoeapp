@@ -10,6 +10,18 @@ class CharacteristicsController < ApplicationController
     @product_slug = params[:product_slug]
   end
 
+  def create
+    @product_slug = params[:product_slug]
+    @characteristic = ProductCharacteristic.new(characteristic_params)
+    @characteristic.product_id = Product.where(["slug = ?",@product_slug]).first.id;
+    if @characteristic.save
+      flash[:notice]="Characteristic created successfully"
+      redirect_to(product_characteristics_path(@product_slug))
+    else
+      render('new')
+    end
+  end
+
   def new
     @product_characterics = ProductCharacteristic.new
     @product_slug = params[:product_slug]
@@ -22,4 +34,15 @@ class CharacteristicsController < ApplicationController
   def delete
     @product_slug = params[:product_slug]
   end
+  
+  private
+  def characteristic_params
+    if params[:product_characteristic][:slug].blank?
+       params[:product_characteristic][:slug] = (params[:product_slug]+" "+params[:product_characteristic][:color]+" "+params[:product_characteristic][:size]).parameterize
+    else
+        params[:product_characteristic][:slug] = params[:product_characteristic][:slug].parameterize
+    end
+    params.require(:product_characteristic).permit(:price,:color,:size,:image,:slug)
+  end
+
 end
