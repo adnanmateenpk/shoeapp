@@ -7,7 +7,8 @@ class CreateOrders < ActiveRecord::Migration
       t.float :total_price
       t.timestamps null: false
     end
+    add_index :orders, :user_id
+    add_index :orders, :tracking_no
   end
-  add_index :orders, :user_id
-  add_index :orders, :tracking_no
+
 end
