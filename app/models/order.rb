@@ -4,6 +4,6 @@ class Order < ActiveRecord::Base
   belongs_to :customer, :class_name => "User"
 
   #validations
-
-  
+  validates :tracking_no, :presence => true, :uniqueness => true
+  validates :total_price, :presence => true
 end
