@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150104130113) do
+ActiveRecord::Schema.define(version: 20150108184830) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -30,6 +30,18 @@ ActiveRecord::Schema.define(version: 20150104130113) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "tracking_no", limit: 255
+    t.integer  "user_id",     limit: 4
+    t.integer  "status",      limit: 4
+    t.float    "total_price", limit: 24
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "orders", ["tracking_no"], name: "index_orders_on_tracking_no", using: :btree
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "product_characteristics", force: :cascade do |t|
     t.float    "price",      limit: 24
