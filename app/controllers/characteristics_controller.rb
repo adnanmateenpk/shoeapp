@@ -47,8 +47,8 @@ class CharacteristicsController < ApplicationController
   def update
     @product_characteristic = ProductCharacteristic.where(["slug = ?",params[:slug]]).first
 
-    if @product_characteristic.update_attributes(product_params)
-      flash[:notice]=@product.status
+    if @product_characteristic.update_attributes(characteristic_params)
+      flash[:notice]=@product_characteristic.status
       redirect_to(:action=>'index')
     else
       @product_characteristic_count = ProductCharacterisitc.count
