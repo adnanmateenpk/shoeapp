@@ -34,6 +34,13 @@ class CharacteristicsController < ApplicationController
 
   def delete
     @product_slug = params[:product_slug]
+    @product_characteristic = ProductCharacteristic.where(["slug = ?",params[:slug]]).first
+  end
+
+  def destroy
+  @product = ProductCharacteristic.where(["slug = ?",params[:slug]]).first.destroy
+  flash[:notice]="Characteristic destroyed successfully"
+  redirect_to(:action=>'index')
   end
 
   private
