@@ -2,7 +2,8 @@ class ProductCharacteristic < ActiveRecord::Base
 
   #relations
   belongs_to :product
-  has_and_belongs_to_many :orders, :join_table => "chars_orders", :foreign_key => :chars_id, :association_foreign_key => :order_id
+  has_many :chars_orders, :foreign_key =>"chars_id"
+  has_many :orders, :through => :chars_orders
   #validations
   validates :price, :numericality => true, :presence => true
 
