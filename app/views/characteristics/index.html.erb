@@ -1,14 +1,15 @@
 <%= link_to("New Characteristic" , new_product_characteristic_path(@product_slug)) %>
 <table class="listing" summary="Product Characteristics list">
   <tr class="header">
-    <th>&nbsp;</th>
+  
     <th>Price</th>
     <th>Color</th>
     <th>Size</th>
     <th>Image</th>
     <th>Slug</th>
+    <th>Actions</th>
   </tr>
-  <% @product_slug.each do |product| %>
+  <% @product_characteristics.each do |product| %>
   <tr class="">
     <td><%= product.price %></td>
     <td><%= product.color %></td>
@@ -16,9 +17,9 @@
     <td><%= product.image %></td>
     <td><%= product.slug %></td>
     <td class="actions">
-      <%= link_to("Show", {:action => 'show', :slug => product.slug}, :class => 'action show') %>
-      <%= link_to("Edit", {:action => 'edit', :slug => product.slug}, :class => 'action edit') %>
-      <%= link_to("Delete", {:action => 'delete', :slug => product.slug}, :class => 'action delete') %>
+      <%= link_to("Show", product_characteristic_path(@product_slug,product.slug), :class => 'action show') %>
+      <%= link_to("Edit", edit_product_characteristic_path(@product_slug,product.slug), :class => 'action edit') %>
+      <%= link_to("Delete",delete_product_characteristic_path(@product_slug,product.slug), :class => 'action delete') %>
     </td>
   </tr>
   <% end %>

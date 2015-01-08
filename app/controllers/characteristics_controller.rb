@@ -3,7 +3,7 @@ class CharacteristicsController < ApplicationController
   before_action :authenticate_admin_user!
   def index
     @product_slug = params[:product_slug]
-
+    @product_characteristics = ProductCharacteristic.all
   end
 
   def show
@@ -12,8 +12,8 @@ class CharacteristicsController < ApplicationController
 
   def create
     @product_slug = params[:product_slug]
-    @characteristic = ProductCharacteristic.new(characteristic_params)
-    @characteristic.product_id = Product.where(["slug = ?",@product_slug]).first.id;
+    @product_characterics = ProductCharacteristic.new(characteristic_params)
+    @product_characterics.product_id = Product.where(["slug = ?",@product_slug]).first.id;
     if @characteristic.save
       flash[:notice]="Characteristic created successfully"
       redirect_to(product_characteristics_path(@product_slug))
