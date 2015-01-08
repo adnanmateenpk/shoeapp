@@ -32,9 +32,14 @@ ActiveRecord::Schema.define(version: 20150108220106) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "chars_orders", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "chars_id",   limit: 4
+    t.integer  "order_id",   limit: 4
+    t.integer  "quantity",   limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
+
+  add_index "chars_orders", ["chars_id", "order_id"], name: "index_chars_orders_on_chars_id_and_order_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.string   "tracking_no", limit: 255
