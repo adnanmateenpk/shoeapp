@@ -29,6 +29,7 @@ class CharacteristicsController < ApplicationController
   end
 
   def edit
+    @product_characteristic = ProductCharacteristic.where(["slug = ?",params[:slug]]).first
     @product_slug = params[:product_slug]
   end
 
@@ -38,9 +39,21 @@ class CharacteristicsController < ApplicationController
   end
 
   def destroy
-  @product = ProductCharacteristic.where(["slug = ?",params[:slug]]).first.destroy
-  flash[:notice]="Characteristic destroyed successfully"
-  redirect_to(:action=>'index')
+    @product = ProductCharacteristic.where(["slug = ?",params[:slug]]).first.destroy
+    flash[:notice]="Characteristic destroyed successfully"
+    redirect_to(:action=>'index')
+  end
+
+  def update
+    @product_characteristic = ProductCharacteristic.where(["slug = ?",params[:slug]]).first
+
+    if @product_characteristic.update_attributes(product_params)
+      flash[:notice]=@product.status
+      redirect_to(:action=>'index')
+    else
+      @product_characteristic_count = ProductCharacterisitc.count
+      render('edit')
+    end
   end
 
   private

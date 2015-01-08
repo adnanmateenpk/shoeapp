@@ -1,2 +1,9 @@
-<h1>Characteristics#edit</h1>
-<p>Find me in app/views/characteristics/edit.html.erb</p>
+<%= link_to("Back to Characteristic",product_characteristics_path(@product_slug),:class=>'action index')%>
+<h1>Update Product Characteristic</h1>
+
+<%= form_for(:product_characteristic,:url => product_characteristic_path(@product_slug,@product_characteristic.slug),:method=>"patch") do |f| %>
+<%= render(:partial => "form",:locals=>{:f=>f})%>
+<div class="form-buttons">
+  <%= submit_tag("Update Product Characteristic")%>
+</div>
+<% end %>
