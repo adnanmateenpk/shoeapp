@@ -1,3 +1,4 @@
+<%= error_messages_for(@product_characteristics)%>
 <table summary="Characteristics form fields">
   <tr>
     <th><%= f.label(:price,"Price")%></th>
@@ -16,7 +17,7 @@
     <td><%= f.text_field(:image) %></td>
   </tr>
   <tr>
-    <th><%= f.label(:slug) %></th>
+    <th><%= f.label(:slug,"Slug") %></th>
     <td><%= f.text_field(:slug)%></td>
   </tr>
 </table>
