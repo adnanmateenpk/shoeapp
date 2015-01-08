@@ -7,6 +7,7 @@ class CharacteristicsController < ApplicationController
   end
 
   def show
+    @product_characteristics = ProductCharacteristic.where(["slug = ?",params[:slug]]).first
     @product_slug = params[:product_slug]
   end
 
@@ -34,7 +35,7 @@ class CharacteristicsController < ApplicationController
   def delete
     @product_slug = params[:product_slug]
   end
-  
+
   private
   def characteristic_params
     if params[:product_characteristic][:slug].blank?

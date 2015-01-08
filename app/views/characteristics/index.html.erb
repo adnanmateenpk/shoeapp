@@ -1,7 +1,7 @@
 <%= link_to("New Characteristic" , new_product_characteristic_path(@product_slug)) %>
 <table class="listing" summary="Product Characteristics list">
   <tr class="header">
-  
+
     <th>Price</th>
     <th>Color</th>
     <th>Size</th>
@@ -11,7 +11,7 @@
   </tr>
   <% @product_characteristics.each do |product| %>
   <tr class="">
-    <td><%= product.price %></td>
+    <td>$<%= product.price %></td>
     <td><%= product.color %></td>
     <td><%= product.size %></td>
     <td><%= product.image %></td>
