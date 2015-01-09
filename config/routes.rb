@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'orders/index'
 
-  get 'orders/edit'
 
   devise_for :users
   root to: 'shop#index'
@@ -12,6 +10,9 @@ Rails.application.routes.draw do
 
   get 'admin', to: 'admin#index' 
   scope :admin do
+    get 'orders' => 'orders#index'
+    get 'order/:id' => 'orders#edit'
+    patch 'orders' => 'orders#update'
     resources :products , param: :slug do
       member do
         get 'delete'
