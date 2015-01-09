@@ -8,11 +8,11 @@ Rails.application.routes.draw do
         sessions: 'admin_users/sessions'
       }
 
-  get 'admin', to: 'admin#index' 
+  get 'admin', to: 'admin#index'
   scope :admin do
     get 'orders' => 'orders#index'
     get 'order/:id' => 'orders#edit'
-    patch 'orders' => 'orders#update'
+    patch 'orders/:id' => 'orders#update'
     resources :products , param: :slug do
       member do
         get 'delete'

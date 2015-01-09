@@ -1,2 +1,24 @@
-<h1>Orders#edit</h1>
-<p>Find me in app/views/orders/edit.html.erb</p>
+<%= link_to("Back to Orders",{:controller=>'orders',:action=>'index'},:class=>'action index')%>
+<%= form_for(:order,:url=>{:action=>'update',:id=>@order.id},:method=>"patch") do |f| %>
+<table summary="Orders form fields">
+  <tr>
+    <th>User</th>
+    <td><%= @order.customer.email %></td>
+  </tr>
+  <tr>
+    <th>Tracking No</th>
+    <td><%= @order.tracking_no %></td>
+  </tr>
+  <tr>
+    <th>Status</th>
+    <td><%= f.select(:status, options_for_select([['Pending',0],['Processing',1],['Shipped',2],['Delivered',3]],2)) %></td>
+  </tr>
+  <tr>
+    <th>Total Price</th>
+    <td><%= @order.total_price %></td>
+  </tr>
+</table>
+<div class="form-buttons">
+  <%= submit_tag("Change Status")%>
+</div>
+<% end %>

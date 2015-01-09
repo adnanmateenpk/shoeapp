@@ -1,7 +1,6 @@
-<%= link_to("Orders",{:controller=>'orders',:action=>'index'},:class=>'action index')%>
+<%= link_to("back to Main",{:controller=>'admin',:action=>'index'},:class=>'action index')%>
 <table class="listing" summary="Order list">
   <tr class="header">
-    
     <th>User</th>
     <th>Tracking No</th>
     <th>Total Price</th>
@@ -21,12 +20,12 @@
       <% when 2 %>
         <td> Shipped</td>
       <% when 3 %>
-        <td> Delivered</td>  
+        <td> Delivered</td>
     <% end %>
     <td class="actions">
- 
+
       <%= link_to("Details", {:action => 'edit', :id => order.id}, :class => 'action edit') %>
-      
+
     </td>
   </tr>
   <% end %>
