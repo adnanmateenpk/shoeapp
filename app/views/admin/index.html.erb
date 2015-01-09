@@ -1,1 +1,23 @@
-<%= link_to("Products",{:controller=>'products',:action=>'index'},:class=>'action index')%>
+<%= link_to("Orders",{:controller=>'orders',:action=>'index'},:class=>'action index')%>
+<table class="listing" summary="Order list">
+  <tr class="header">
+    <th>&nbsp;</th>
+    <th>User ID</th>
+    <th>Tracking No</th>
+    <th>Total Price</th>
+    <th>Status</th>
+  </tr>
+  <% @orders.each do |order| %>
+  <tr class="">
+    <td><%= order.customer.email %></td>
+    <td><%= order.tracking_no %></td>
+    <td><%= order.total_price %></td>
+    <td><%= order.status %></td>
+    <td class="actions">
+      <%= #link_to("Show", {:action => 'show', :slug => product.slug}, :class => 'action show') %>
+      <%= #link_to("Edit", {:action => 'edit', :slug => product.slug}, :class => 'action edit') %>
+      <%= #link_to("Delete", {:action => 'delete', :slug => product.slug}, :class => 'action delete') %>
+    </td>
+  </tr>
+  <% end %>
+</table>
