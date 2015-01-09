@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 20150109185754) do
     t.string   "meta_description",       limit: 255
     t.string   "stripe_secret_key",      limit: 255
     t.string   "stripe_publishable_key", limit: 255
+    t.string   "upload_path",            limit: 255
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
   end

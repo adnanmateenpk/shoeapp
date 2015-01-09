@@ -9,6 +9,7 @@ class CreateWebsiteSettings < ActiveRecord::Migration
       t.string :meta_description
       t.string :stripe_secret_key
       t.string :stripe_publishable_key
+      t.string :upload_path
       t.timestamps null: false
     end
   end
