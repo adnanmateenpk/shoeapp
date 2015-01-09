@@ -14,7 +14,7 @@
   </tr>
   <tr>
     <th><%= f.label(:status) %></th>
-    <td><%= f.select(:status, options_for_select([['Published',1],['Unpublished',0]],2)) %></td>
+    <td><%= f.select(:status, options_for_select([['Published',1],['Unpublished',0]],(@product.status ? 1 : 0))) %></td>
   </tr>
   <tr>
     <th><%= f.label(:description) %></th>

@@ -11,7 +11,7 @@
   </tr>
   <tr>
     <th>Status</th>
-    <td><%= f.select(:status, options_for_select([['Pending',0],['Processing',1],['Shipped',2],['Delivered',3]],2)) %></td>
+    <td><%= f.select(:status, options_for_select([['Pending',0],['Processing',1],['Shipped',2],['Delivered',3]],@order.status)) %></td>
   </tr>
   <tr>
     <th>Total Price</th>
