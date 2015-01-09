@@ -1,3 +1,4 @@
+<%= error_messages_for(@order)%>
 <%= link_to("Back to Orders",{:controller=>'orders',:action=>'index'},:class=>'action index')%>
 <%= form_for(:order,:url=>{:action=>'update',:id=>@order.id},:method=>"patch") do |f| %>
 <table summary="Orders form fields">
