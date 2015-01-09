@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'orders/index'
+
+  get 'orders/edit'
+
   devise_for :users
   root to: 'shop#index'
 
