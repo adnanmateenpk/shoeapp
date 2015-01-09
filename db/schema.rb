@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150108220106) do
+ActiveRecord::Schema.define(version: 20150109183940) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20150108220106) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name",             limit: 255
+    t.string   "last_name",              limit: 255
   end
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
@@ -68,14 +70,16 @@ ActiveRecord::Schema.define(version: 20150108220106) do
   add_index "product_characteristics", ["slug"], name: "index_product_characteristics_on_slug", using: :btree
 
   create_table "products", force: :cascade do |t|
-    t.string   "mod_name",    limit: 255
-    t.text     "description", limit: 65535
-    t.string   "sku",         limit: 255
-    t.boolean  "status",      limit: 1
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "position",    limit: 4
-    t.string   "slug",        limit: 255
+    t.string   "mod_name",         limit: 255
+    t.text     "description",      limit: 65535
+    t.string   "sku",              limit: 255
+    t.boolean  "status",           limit: 1
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "position",         limit: 4
+    t.string   "slug",             limit: 255
+    t.string   "meta_keywords",    limit: 255
+    t.string   "meta_description", limit: 255
   end
 
   add_index "products", ["position"], name: "index_products_on_position", using: :btree
@@ -94,6 +98,8 @@ ActiveRecord::Schema.define(version: 20150108220106) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name",             limit: 255
+    t.string   "last_name",              limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
