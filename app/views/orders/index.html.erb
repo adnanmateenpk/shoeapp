@@ -13,7 +13,16 @@
     <td><%= order.customer.email %></td>
     <td><%= order.tracking_no %></td>
     <td><%= order.total_price %></td>
-    <td><%= order.status ? "Published" : "Unpublished" %></td>
+    <% case order.status %>
+      <% when 0 %>
+        <td> Pending </td>
+      <% when 1 %>
+        <td> Processing</td>
+      <% when 2 %>
+        <td> Shipped</td>
+      <% when 3 %>
+        <td> Delivered</td>  
+    <% end %>
     <td class="actions">
  
       <%= link_to("Details", {:action => 'edit', :id => order.id}, :class => 'action edit') %>
