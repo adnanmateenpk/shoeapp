@@ -1,7 +1,7 @@
 <%= link_to("Back to Main",{:action=>'index'},:class=>'action index')%>
 <h1>Website Settings</h1>
 
-<%= form_for(:product, :url=>{:action=>'save_settings'}, :method=>"patch") do |f| %>
+<%= form_for(:setting, :url=>{:action=>'save_settings'}, :method=>"patch") do |f| %>
 <%= render(:partial => "form",:locals=>{:f=>f})%>
 <div class="website_settings-buttons">
   <%= submit_tag("Update Website Settings")%>
