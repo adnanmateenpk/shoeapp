@@ -10,8 +10,9 @@ class AdminController < ApplicationController
 
 	def save_settings
 		@setting = WebsiteSetting.all.first
-		if @settings.update_attributes(settings_params)
-			redirect_to("index")
+		if @setting.update_attributes(settings_params)
+			flash[:notice] = "Settings Saved"
+			redirect_to(:action=>'index')
 		else
 			render('settings')
 		end
