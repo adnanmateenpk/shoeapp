@@ -28,4 +28,8 @@
     <th><%= f.label(:stripe_publishable_key,"Stripe Publishable Key")%></th>
     <td><%= f.text_field(:stripe_publishable_key)%></td>
   </tr>
+  <tr>
+    <th><%= f.label(:upload_path,"Upload photo")%></th>
+    <td><%= f.file_field(:upload_path)%></td>
+  </tr>
 </table>
