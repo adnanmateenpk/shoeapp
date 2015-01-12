@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-
   devise_for :users
   root to: 'shop#index'
 
@@ -15,6 +13,8 @@ Rails.application.routes.draw do
     patch 'orders/:id' => 'orders#update'
     get 'settings' => 'admin#settings'
     patch 'settings' => 'admin#save_settings'
+    get 'mail_to_subscribers'=>"admin#mail_to_subscribers"
+    patch 'send_email' =>"admin#send_mail"
     resources :products , param: :slug do
       member do
         get 'delete'
