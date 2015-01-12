@@ -9,7 +9,7 @@ class AdminController < ApplicationController
 	end
 
 	def save_settings
-		@settings = Website.all.first
+		@settings = WebsiteSetting.all.first
 		if @settings.update_attributes(settings_params)
 			redirect_to("index")
 		else
