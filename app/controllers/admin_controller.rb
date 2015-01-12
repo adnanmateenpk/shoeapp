@@ -18,9 +18,17 @@ class AdminController < ApplicationController
 		end
 	end
 
+	def mail_to_subscribers
+
+	end
+
+	def send_mail
+
+	end
+
 private
 	def settings_params
 		params.require(:setting).permit(:title, :website_url, :email, :meta_keyword, :meta_description, :stripe_secret_key, :stripe_publishable_key, :upload_path)
 	end
-
+		
 end
