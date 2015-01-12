@@ -1,0 +1,31 @@
+<%= error_messages_for(@settings)%>
+<table summary="Website form fields">
+  <tr>
+    <th><%= f.label(:title,"Title")%></th>
+    <td><%= f.text_field(:title)%></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:website_url,"Website URL")%></th>
+    <td><%= f.text_field(:website_url)%></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:email,"Email")%></th>
+    <td><%= f.text_field(:email)%></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:meta_keyword,"Meta Keywords") %></th>
+    <td><%= f.text_field(:meta_keyword) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:meta_description, "Meta Description") %></th>
+    <td><%= f.text_area(:meta_description) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:stripe_secret_key,"Stripe Secret Key") %></th>
+    <td><%= f.text_field(:stripe_secret_key)%></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:stripe_publishable_key,"Stripe Publishable Key")%></th>
+    <td><%= f.text_field(:stripe_publishable_key)%></td>
+  </tr>
+</table>

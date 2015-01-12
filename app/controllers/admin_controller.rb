@@ -5,9 +5,15 @@ class AdminController < ApplicationController
   end
 
 	def settings
+		@settings = WebsiteSetting.all.first
 	end
 
 	def save_settings
+		if @settings.update_attributes(settings_params)
+			redirect_to("index")
+		else
+			render('settings')
+		end
 	end
 
 private
