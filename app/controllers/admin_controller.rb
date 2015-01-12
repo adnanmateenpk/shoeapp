@@ -23,12 +23,14 @@ class AdminController < ApplicationController
 	end
 
 	def send_mail
-
+		Subscriber.all.each do |s|
+			SubscriberMailer.bulk_mail(s.email,params["subject"],params["message"]).deliver_later
+		end
 	end
 
 private
 	def settings_params
 		params.require(:setting).permit(:title, :website_url, :email, :meta_keyword, :meta_description, :stripe_secret_key, :stripe_publishable_key, :upload_path)
 	end
-		
+
 end
