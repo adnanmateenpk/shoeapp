@@ -5,11 +5,11 @@ class AdminController < ApplicationController
   end
 
 	def settings
-		@settings = WebsiteSetting.all.first
+		@setting = WebsiteSetting.all.first
 	end
 
 	def save_settings
-		@settings = WebsiteSetting.all.first
+		@setting = WebsiteSetting.all.first
 		if @settings.update_attributes(settings_params)
 			redirect_to("index")
 		else
