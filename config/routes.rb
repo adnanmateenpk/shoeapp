@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get 'settings' => 'admin#settings'
     patch 'settings' => 'admin#save_settings'
     get 'mail_to_subscribers'=>"admin#mail_to_subscribers"
-    patch 'send_email' =>"admin#send_mail"
+    post 'send_email' =>"admin#send_mail"
     resources :products , param: :slug do
       member do
         get 'delete'
