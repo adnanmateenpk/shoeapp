@@ -1,4 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "from@example.com"
+  #default from "website email"
+  default from: WebsiteSetting.all.first.email
   layout 'mailer'
 end

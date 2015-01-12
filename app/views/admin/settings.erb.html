@@ -1,0 +1,9 @@
+<%= link_to("Back to Products",{:action=>'index'},:class=>'action index')%>
+<h1>Website Settings</h1>
+
+<%= form_for(:product, :url=>{:action => 'update', :slug => @product.slug},:method=>"patch") do |f| %>
+<%= render(:partial => "form",:locals=>{:f=>f})%>
+<div class="website_settings-buttons">
+  <%= submit_tag("Update Website Settings")%>
+</div>
+<% end %>

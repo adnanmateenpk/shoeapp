@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     get 'orders' => 'orders#index'
     get 'order/:id' => 'orders#edit'
     patch 'orders/:id' => 'orders#update'
+    get 'settings' => 'admin#settings'
+    patch 'settings' => 'admin#save_settings'
     resources :products , param: :slug do
       member do
         get 'delete'
