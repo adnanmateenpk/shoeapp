@@ -25,8 +25,8 @@ class AdminController < ApplicationController
 	def send_mail
 		Subscriber.all.each do |s|
 			SubscriberMailer.bulk_mail(s.email,params["subject"],params["message"]).deliver_later
-		render("mail_to_subscribers")
 		end
+		render("mail_to_subscribers")
 	end
 
 private
