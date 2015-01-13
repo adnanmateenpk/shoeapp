@@ -1,7 +1,7 @@
 <%= link_to("Back to Characteristic",product_characteristics_path(@product_slug),:class=>'action index')%>
 <h1>Update Product Characteristic</h1>
 
-<%= form_for(:product_characteristic,:url => product_characteristic_path(@product_slug,@product_characteristic.slug),:method=>"patch") do |f| %>
+<%= form_for(:product_characteristic,:url => product_characteristic_path(@product_slug,@product_characteristic.slug),:method=>"patch",:multipart=>true) do |f| %>
 <%= render(:partial => "form",:locals=>{:f=>f})%>
 <div class="form-buttons">
   <%= submit_tag("Update Product Characteristic")%>
