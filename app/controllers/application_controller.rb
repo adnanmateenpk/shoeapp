@@ -16,5 +16,6 @@ class ApplicationController < ActionController::Base
 		# replace all none alphanumeric, underscore or perioids
 		# with underscore
 		just_filename.sub(/[^\w\.\-]/,'-')
+		
 	end
 end
