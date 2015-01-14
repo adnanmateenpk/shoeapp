@@ -3,7 +3,7 @@ class CharacteristicsController < ApplicationController
   before_action :authenticate_admin_user!
   def index
     @product_slug = params[:product_slug]
-    @product_characteristics = ProductCharacteristic.all
+    @product_characteristics = ProductCharacteristic.where(["product_id = ?", Product.where(["slug = ?", @product_slug]).first.id])
   end
 
   def show
