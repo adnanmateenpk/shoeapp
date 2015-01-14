@@ -1,4 +1,6 @@
-
+<% if !session["products"].nil? %>
+<%= link_to("Shopping_cart", {:action => 'shopping_cart'}, :class => 'action shopping_cart') %>
+<% end %>
 <h1>Welcome to Tito Shoe Co</h1>
 <table class="listing" summary="Product list">
   <tr class="header">

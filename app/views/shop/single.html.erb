@@ -1,4 +1,7 @@
 <%= link_to("Back to Shop Area", {:action => 'index'}, :class => 'action index') %>
+<% if !session["products"].nil? %>
+<%= link_to("Shopping_cart", {:action => 'shopping_cart'}, :class => 'action shopping_cart') %>
+<% end %>
 <table class="listing" summary="">
   <tr class="header">
     <th>#</th>
@@ -43,7 +46,7 @@
   </tr>
   <% @product.product_characteristics.each_with_index do |characteristic, key| %>
   <tr class="">
-    <td><%= key %></td>
+    <td><%= key+1 %></td>
     <td>$<%= characteristic.price %></td>
     <td><%= characteristic.color %></td>
     <td><%= characteristic.size %></td>
