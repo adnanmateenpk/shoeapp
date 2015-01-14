@@ -4,11 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   	def upload_files_custom(file)
-    name = Time.now.to_i.to_s+"_"+sanitize_filename(file.original_filename)
+    	name = Time.now.to_i.to_s+"_"+sanitize_filename(file.original_filename)
 		directory = File.join("public",WebsiteSetting.all.first.upload_path)
 		path = File.join(directory,name)
 		File.open(path,"wb"){|f| f.write(file.read) }
-    name
+    	name
 	end
 
 	def sanitize_filename(file_name)
