@@ -7,15 +7,15 @@ class CharacteristicsController < ApplicationController
   end
 
   def show
-    @product_characteristics = ProductCharacteristic.where(["slug = ?",params[:slug]]).first
+    @product_characteristic = ProductCharacteristic.where(["slug = ?",params[:slug]]).first
     @product_slug = params[:product_slug]
   end
 
   def create
     @product_slug = params[:product_slug]
-    @product_characterics = ProductCharacteristic.new(characteristic_params)
-    @product_characterics.product_id = Product.where(["slug = ?",@product_slug]).first.id;
-    if @characteristic.save
+    @product_characteric = ProductCharacteristic.new(characteristic_params)
+    @product_characteric.product_id = Product.where(["slug = ?",@product_slug]).first.id;
+    if @product_characteric.save
       flash[:notice]="Characteristic created successfully"
       redirect_to(product_characteristics_path(@product_slug))
     else
@@ -24,7 +24,7 @@ class CharacteristicsController < ApplicationController
   end
 
   def new
-    @product_characterics = ProductCharacteristic.new
+    @product_characteric = ProductCharacteristic.new
     @product_slug = params[:product_slug]
   end
 
@@ -58,7 +58,11 @@ class CharacteristicsController < ApplicationController
 
   private
   def characteristic_params
-    params[:product_characteristic][:image]= upload_files_custom(params[:product_characteristic][:image])
+    if !params[:product_characteristic][:image].blank?
+      params[:product_characteristic][:image]= upload_files_custom(params[:product_characteristic][:image])
+    else 
+      params[:product_characteristic][:image] = ""  
+    end
     if params[:product_characteristic][:slug].blank?
        params[:product_characteristic][:slug] = (params[:product_slug]+" "+params[:product_characteristic][:color]+" "+params[:product_characteristic][:size]).parameterize
     else

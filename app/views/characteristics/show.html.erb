@@ -1,22 +1,26 @@
 <table summary="Product Characteristics form fields">
   <tr>
     <th>Price</th>
-    <td><%= @product_characteristics.price %></td>
+    <td><%= @product_characteristic.price %></td>
   </tr>
   <tr>
     <th>Color</th>
-    <td><%= @product_characteristics.color %></td>
+    <td><%= @product_characteristic.color %></td>
   </tr>
   <tr>
     <th>Size</th>
-    <td><%= @product_characteristics.size %></td>
+    <td><%= @product_characteristic.size %></td>
   </tr>
   <tr>
     <th>Image</th>
-    <td><img src="<%= '/assets/images/'+WebsiteSetting.all.first.upload_path+'/'+@product_characteristics.image %>"/></td>
+    <% if @product_characteristic.image.blank? %>
+    <td></td>
+    <% else %>
+    <td><img src="<%= '/assets/'+WebsiteSetting.all.first.upload_path+'/'+@product_characteristic.image %>"/></td>
+    <% end %>
   </tr>
   <tr>
     <th>Slug</th>
-    <td><%= @product_characteristics.slug %></td>
+    <td><%= @product_characteristic.slug %></td>
   </tr>
 </table>
