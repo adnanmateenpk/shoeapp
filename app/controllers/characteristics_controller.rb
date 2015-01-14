@@ -57,7 +57,12 @@ class CharacteristicsController < ApplicationController
   end
 
   private
+  def
+
+  end
+
   def characteristic_params
+    params[:product_characteristics][:image]= upload_files_custom(params[:product_characteristic][:image])
     if params[:product_characteristic][:slug].blank?
        params[:product_characteristic][:slug] = (params[:product_slug]+" "+params[:product_characteristic][:color]+" "+params[:product_characteristic][:size]).parameterize
     else
