@@ -5,16 +5,17 @@ Rails.application.routes.draw do
    devise_for :admin_users, controllers: {
         sessions: 'admin_users/sessions'
       }
+  get 'single/:slug', to: 'shop#single'
 
   get 'admin', to: 'admin#index'
   scope :admin do
-    get 'orders' => 'orders#index'
-    get 'order/:id' => 'orders#edit'
-    patch 'orders/:id' => 'orders#update'
-    get 'settings' => 'admin#settings'
-    patch 'settings' => 'admin#save_settings'
-    get 'mail_to_subscribers'=>"admin#mail_to_subscribers"
-    post 'send_email' =>"admin#send_mail"
+    get 'orders', to: 'orders#index'
+    get 'order/:id', to: 'orders#edit'
+    patch 'orders/:id', to: 'orders#update'
+    get 'settings', to: 'admin#settings'
+    patch 'settings', to: 'admin#save_settings'
+    get 'mail_to_subscribers', to: "admin#mail_to_subscribers"
+    post 'send_email', to: "admin#send_mail"
     resources :products , param: :slug do
       member do
         get 'delete'
