@@ -6,8 +6,8 @@ module ApplicationHelper
   end
 
 	def upload_files_custom(file)
-		name = santize_filename(file["image"].original_filename)
-		directory = "public/"+Setting.all.first.upload_path
+		name = santize_filename(file["image"].original_filename)+Time.now.to_i
+		directory = File.join("public",Setting.all.first.upload_path)
 		path = File.join(directory,name)
 		File.open(path,"wb"){|f| f.write(upload['image'].read) }
 	end
