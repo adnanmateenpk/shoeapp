@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get 'single/:slug', to: 'shop#single'
 
   get 'admin', to: 'admin#index'
+
+  post "add_to_cart", to: "shop#add_to_cart"
+
   scope :admin do
     get 'orders', to: 'orders#index'
     get 'order/:id', to: 'orders#edit'
