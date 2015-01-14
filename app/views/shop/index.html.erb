@@ -1,11 +1,14 @@
+
 <h1>Welcome to Tito Shoe Co</h1>
 <table class="listing" summary="Product list">
   <tr class="header">
-    <th>&nbsp;</th>
+    <th>#</th>
     <th>Model Name</th>
+    <th>actions</th>
   </tr>
-  <% @products.each do |product| %>
+  <% @products.each_with_index do |product , key| %>
   <tr class="">
+    <td><%= key+1 %></td>
     <td><%= product.mod_name %></td>
     <td class="actions">
     <%= link_to("Details", {:action => 'single', :slug => product.slug}, :class => 'action single') %>
