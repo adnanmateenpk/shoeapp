@@ -30,6 +30,7 @@
   </tr>
 </table>
 <table class="listing" summary="Product Characteristics list">
+<%= form_tag({:action=>"add_to_cart"})%>
   <tr class="header">
     <th>#</th>
     <th>Price</th>
@@ -51,4 +52,4 @@
   </tr>
   <% end %>
 </table>
-<%= form_tag({:action=>"add_to_cart"})%>
+
