@@ -1,5 +1,21 @@
 <%= link_to("Back to Shop Area", {:action => 'index'}, :class => 'action index') %>
-<table summary="Product form fields">
+<table class="listing" summary="">
+  <tr class="header">
+    <th>#</th>
+    <th>Model Name</th>
+    <th>actions</th>
+  </tr>
+  <% @products.each_with_index do |product , key| %>
+  <tr class="">
+    <td><%= key+1 %></td>
+    <td><%= product.mod_name %></td>
+    <td class="actions">
+      <%= link_to("Details", {:action => 'single', :slug => product.slug}, :class => 'action single') %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+<table summary="">
   <tr>
     <th>Model Name</th>
     <td><%= @product.mod_name %></td>
@@ -13,3 +29,26 @@
     <td><%= @product.description %></td>
   </tr>
 </table>
+<table class="listing" summary="Product Characteristics list">
+  <tr class="header">
+    <th>#</th>
+    <th>Price</th>
+    <th>Color</th>
+    <th>Size</th>
+    <th>Image</th>
+    <th>Slug</th>
+    <th>Actions</th>
+  </tr>
+  <% @product.product_characteristics.each_with_index do |characteristic, key| %>
+  <tr class="">
+    <td><%= key %></td>
+    <td>$<%= characteristic.price %></td>
+    <td><%= characteristic.color %></td>
+    <td><%= characteristic.size %></td>
+    <td><%= characteristic.image %></td>
+    <td><%= characteristic.slug %></td>
+    <td><%= radio_button_tag(:selected , characteristic.id) %></td>
+  </tr>
+  <% end %>
+</table>
+<%= form_tag({:action=>"add_to_cart"})%>
