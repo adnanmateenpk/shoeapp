@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
 		directory = File.join("public",WebsiteSetting.all.first.upload_path)
 		path = File.join(directory,name)
 		File.open(path,"wb"){|f| f.write(file.read) }
+    name
 	end
 
 	def sanitize_filename(file_name)
