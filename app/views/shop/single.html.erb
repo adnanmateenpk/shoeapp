@@ -2,22 +2,7 @@
 <% if !session["products"].nil? %>
 <%= link_to("Shopping_cart", {:action => 'shopping_cart'}, :class => 'action shopping_cart') %>
 <% end %>
-<table class="listing" summary="">
-  <tr class="header">
-    <th>#</th>
-    <th>Model Name</th>
-    <th>actions</th>
-  </tr>
-  <% @products.each_with_index do |product , key| %>
-  <tr class="">
-    <td><%= key+1 %></td>
-    <td><%= product.mod_name %></td>
-    <td class="actions">
-      <%= link_to("Details", {:action => 'single', :slug => product.slug}, :class => 'action single') %>
-    </td>
-  </tr>
-  <% end %>
-</table>
+
 <table summary="">
   <tr>
     <th>Model Name</th>
@@ -32,8 +17,9 @@
     <td><%= @product.description %></td>
   </tr>
 </table>
-<table class="listing" summary="Product Characteristics list">
 <%= form_tag({:action=>"add_to_cart"})%>
+<table class="listing" summary="Product Characteristics list">
+
   <tr class="header">
     <th>#</th>
     <th>Price</th>
@@ -52,11 +38,12 @@
     <td><%= characteristic.size %></td>
     <td><%= characteristic.image %></td>
     <td><%= characteristic.slug %></td>
-    <td><%= text_field_tag "quantity"+@characteristic.id.to_s %></td>
+    <td><%= text_field_tag "quantity"+characteristic.id.to_s %></td>
     <td><%= radio_button_tag(:selected , characteristic.id) %></td>
   </tr>
   <% end %>
-  <div class="website_settings-buttons">
+  
+</table>
+<div class="website_settings-buttons">
   <%= submit_tag("Add to Cart")%>
 </div>
-</table>

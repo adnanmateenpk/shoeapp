@@ -6,7 +6,7 @@ Rails.application.routes.draw do
         sessions: 'admin_users/sessions'
       }
   get 'single/:slug', to: 'shop#single'
-
+  get 'shopping_cart', to: 'shop#shopping_cart'
   get 'admin', to: 'admin#index'
 
   post "add_to_cart", to: "shop#add_to_cart"

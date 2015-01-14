@@ -13,14 +13,16 @@
   <% @products.each_with_index do |product , key| %>
   <tr class="">
     <td><%= key+1 %></td>
-    <td><%= product.product.mod_name %></td>
-    <td><%= product.size %></td>
-    <td><%= product.quantity %></td>
-    <td><%= product.color %></td>
-    <td><%= product.price * product.quantity %></td>
-    <% total_price = total_price + product.price * product.quantity %>   
+    <td><%= product["product"].product.mod_name %></td>
+    <td><%= product["product"].size %></td>
+    <td><%= product["quantity"] %></td>
+    <td><%= product["product"].color %></td>
+    <td><%= product["product"].price * product["quantity"].to_f  %></td>
+    <% total_price = total_price + product["product"].price * product["quantity"].to_f %>   
   </tr>
   <% end %>
+  </table>
+  <table class="actions" summary="actions">
   <tr class="">
     <td></td>
     <td></td>

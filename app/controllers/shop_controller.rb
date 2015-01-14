@@ -22,7 +22,7 @@ class ShopController < ApplicationController
     @products = Array.new
     session["products"].each_with_index do |product, index|
     @products[index] = Hash.new
-    @products[index]["data"] = ProductCharacteristic.find(product["id"])
+    @products[index]["product"] = ProductCharacteristic.find(product["id"])
     @products[index]["quantity"] = product["quantity"]
     end
   end
