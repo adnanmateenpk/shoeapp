@@ -5,7 +5,8 @@ class ApplicationController < ActionController::Base
 
   	def upload_files_custom(file)
     	name = Time.now.to_i.to_s+"_"+sanitize_filename(file.original_filename)
-		directory = File.join("public",WebsiteSetting.all.first.upload_path)
+		directory = File.join("vendor","assets","images",WebsiteSetting.all.first.upload_path)
+		FileUtils.mkdir_p(directory) unless File.directory?(directory)
 		path = File.join(directory,name)
 		File.open(path,"wb"){|f| f.write(file.read) }
     	name
