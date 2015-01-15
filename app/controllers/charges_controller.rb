@@ -6,14 +6,14 @@ class ChargesController < ApplicationController
   end
 
   def charge
-    @amount = session[:total_price]*100
+      @amount = session[:total_price]*100
 
       customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
       :card => params[:stripeToken]
       )
 
-      charge = Stripe::Customer.create(
+      charge = Stripe::Charge.create(
       :customer => customer.id,
       :amount => @amount.to_i,
       :description => 'Rails Stripe customer',
@@ -40,8 +40,9 @@ class ChargesController < ApplicationController
     end
 
     reset_session
+    flash[:notice] = "Payment Made you reciept number/tracking number is "+customer.id.to_s
     redirect_to(:action => "index", :controller => "shop")
-    flash[:notice] = "Payment Made you reciept number/tracking number is "+order.tracking_no
+    
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
