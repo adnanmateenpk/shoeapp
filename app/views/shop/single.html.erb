@@ -39,7 +39,7 @@
     <td><%= characteristic.image %></td>
     <td><%= characteristic.slug %></td>
     <td><%= text_field_tag "quantity"+characteristic.id.to_s %></td>
-    <td><%= radio_button_tag(:selected , characteristic.id) %></td>
+    <td><%= radio_button_tag(:selected, characteristic.id, (key+1==1))%></td>    
   </tr>
   <% end %>
 
