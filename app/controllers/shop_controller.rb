@@ -14,7 +14,11 @@ class ShopController < ApplicationController
     product_count = session["products"].length
     session["products"][product_count] = Hash.new
     session["products"][product_count]["id"]=params[:selected]
-    session["products"][product_count]["quantity"]=params["quantity"+params[:selected]]
+    if params["quantity"+params[:selected]].blank?
+      session["products"][product_count]["quantity"] = 1
+    else
+      session["products"][product_count]["quantity"] = params["quantity"+params[:selected]]
+    end
     redirect_to(:action => "shopping_cart")
   end
 
