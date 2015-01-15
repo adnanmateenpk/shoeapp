@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 gem 'acts_as_list', '~>0.6.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'

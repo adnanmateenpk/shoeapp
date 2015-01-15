@@ -1,4 +1,5 @@
 class ShopController < ApplicationController
+  layout 'shop'
   def index
     @products = Product.where(["status = ?",1])
   end
