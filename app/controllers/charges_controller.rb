@@ -14,7 +14,7 @@ class ChargesController < ApplicationController
       )
 
       charge = Stripe::Customer.create(
-      :customer = customer.id,
+      :customer => customer.id,
       :amount => @amount.to_i,
       :description => 'Rails Stripe customer',
       :currency => 'usd'
@@ -42,7 +42,7 @@ class ChargesController < ApplicationController
     reset_session
     redirect_to(:action => "index", :controller => "shop")
     flash[:notice] = "Payment Made you reciept number/tracking number is "+order.tracking_no
-    
+
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to({:action=>"details"})
