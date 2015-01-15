@@ -1,0 +1,13 @@
+<%= form_tag {:action => 'charges'} do %>
+<article>
+  <label class="amount">
+    <span>Amount:<%= session[:total_price]*100 %></span>
+  </label>
+</article>
+
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+  data-key= "<%= WebsiteSetting.all.first.stripe_publishable_key %>"
+  data-description= "Shoe Purchase"
+  data-amount="<%= session[:total_price]*100 %>">
+  </script>
+<% end %>

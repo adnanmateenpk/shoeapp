@@ -8,7 +8,7 @@
     <th>Quantity</th>
     <th>Color</th>
     <th>Price</th>
-    
+
   </tr>
   <% @products.each_with_index do |product , key| %>
   <tr class="">
@@ -18,7 +18,7 @@
     <td><%= product["quantity"] %></td>
     <td><%= product["product"].color %></td>
     <td><%= product["product"].price * product["quantity"].to_f  %></td>
-    <% total_price = total_price + product["product"].price * product["quantity"].to_f %>   
+    <% total_price = total_price + product["product"].price * product["quantity"].to_f %>
   </tr>
   <% end %>
   </table>
@@ -26,11 +26,11 @@
   <tr class="">
     <td></td>
     <td></td>
-   
+
     <td><%= link_to("Continue Shopping", {:action => 'index'}, :class => 'action index') %></td>
-    <td><%= link_to("Checkout", '#' , :class => 'action index') %></td>
+    <td><%= link_to("Checkout",{:action => "details", :controller => "charges"}, :class => 'action checkout')%></td>
     <td>Total Price</td>
-    <td><%= total_price %> </td>
-    
+    <td><%= session[:total_price] = total_price %> </td>
+
   </tr>
 </table>
