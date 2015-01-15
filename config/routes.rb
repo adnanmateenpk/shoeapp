@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'admin', to: 'admin#index'
 
   post "add_to_cart", to: "shop#add_to_cart"
+  post "status", to: "shop#get_status"
 
   scope :admin do
     get 'orders', to: 'orders#index'

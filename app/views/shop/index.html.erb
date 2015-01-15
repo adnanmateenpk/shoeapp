@@ -18,3 +18,10 @@
   </tr>
   <% end %>
 </table>
+<%= form_tag({:action => "get_status"}) do %>
+    <div>Track Your Order</div>
+    <div><%= text_field_tag "tracking_no" %></div>
+    <div class="website_settings-buttons">
+      <%= submit_tag("Track")%>
+    </div>
+<% end %>

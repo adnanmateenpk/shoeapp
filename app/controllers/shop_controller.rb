@@ -31,6 +31,26 @@ class ShopController < ApplicationController
     @products[index]["quantity"] = product["quantity"]
     end
   end
+  def get_status
+    status = Order.where(["tracking_no = ?",params[:tracking_no]]).first
+    if !status.nil?
+      case status.status
+        when 0 
+          stat = "Pending" 
+        when 1 
+          stat = "Processing"
+        when 2 
+          stat = "Shipped"
+        when 3 
+          stat = "Delivered"
+      end 
+      flash[:notice] = "Your order #{status.tracking_no} is in #{stat} phase"
+    else 
+      flash[:notice] = "No order By this Tracking No"
+    end
+    
+    redirect_to({:action => "index"})
+  end
 
   private
 
