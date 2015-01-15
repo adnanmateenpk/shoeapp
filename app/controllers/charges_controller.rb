@@ -40,7 +40,7 @@ class ChargesController < ApplicationController
     end
 
     reset_session
-    flash[:notice] = "Payment Made you reciept number/tracking number is "+customer.id.to_s
+    flash[:notice] = "Payment Made you reciept number/tracking number is "+order.tracking_no
     redirect_to(:action => "index", :controller => "shop")
     
 
