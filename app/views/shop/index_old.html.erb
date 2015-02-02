@@ -1,0 +1,27 @@
+<% if !session["products"].nil? %>
+<%= link_to("Shopping_cart", {:action => 'shopping_cart'}, :class => 'action shopping_cart') %>
+<% end %>
+<h1>Welcome to Tito Shoe Co</h1>
+<table class="listing" summary="Product list">
+  <tr class="header">
+    <th>#</th>
+    <th>Model Name</th>
+    <th>actions</th>
+  </tr>
+  <% @products.each_with_index do |product , key| %>
+  <tr class="">
+    <td><%= key+1 %></td>
+    <td><%= product.mod_name %></td>
+    <td class="actions">
+    <%= link_to("Details", {:action => 'single', :slug => product.slug}, :class => 'action single') %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+<%= form_tag({:action => "get_status"}) do %>
+    <div>Track Your Order</div>
+    <div><%= text_field_tag "tracking_no" %></div>
+    <div class="website_settings-buttons">
+      <%= submit_tag("Track")%>
+    </div>
+<% end %>
